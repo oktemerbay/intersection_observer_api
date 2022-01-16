@@ -1,8 +1,8 @@
 import {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
-import App2 from './App2';
-import App3 from './App3';
+import BoundingClientRectPage from './BoundingClientRectPage';
+import IntersectionObserverPage from './IntersectionObserverPage';
 
 function App() {
 	
@@ -15,7 +15,7 @@ function App() {
   return (
     <div>
 	<button onClick={changeSample}>Örnek Değiştir</button>
-	{isIntersectionObserverApi ? <App3 /> : <App2 />}
+	{isIntersectionObserverApi ? <IntersectionObserverPage /> : <BoundingClientRectPage />}
     </div>
   );
 }

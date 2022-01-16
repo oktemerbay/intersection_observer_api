@@ -5,7 +5,7 @@ import {useState,useEffect,useRef} from 'react';
 
 
 
-function App2() {
+function BoundingClientRectPage() {
 	
 	
 	const dataRef = useRef([]);
@@ -58,4 +58,4 @@ function App2() {
 	);
 }
 
-export default App2;
+export default BoundingClientRectPage;

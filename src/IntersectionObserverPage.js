@@ -1,6 +1,6 @@
 import {useEffect , useState , useRef} from 'react';
 
-function App3 (){
+function IntersectionObserverPage (){
 	
 	const [data , setData] = useState([]);
 	const dataRef = useRef([])
@@ -78,4 +78,4 @@ function App3 (){
 	)
 }
 
-export default App3;
+export default IntersectionObserverPage;
