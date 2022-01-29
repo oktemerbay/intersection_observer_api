@@ -6,16 +6,14 @@ import {useState,useEffect,useRef} from 'react';
 
 
 function BoundingClientRectPage() {
-	
-	
+		
 	const dataRef = useRef([]);
 	const dataElementRef = useRef([]);
 	const myDivRef = useRef();
 	const [data , setData] = useState([]);
-	const [rect, setRect] = useState();
 	
 
-	function scrollListener() {
+	function addData() {
 		const marginPixel = 20;
 		const arrSize = dataRef.current.length;
 		let isAdd = false;
@@ -24,7 +22,6 @@ function BoundingClientRectPage() {
 		} else { // en son elementin gorunup gorulmedigi kontrolu yapilacak
 			const divVar = dataElementRef.current[dataElementRef.current.length - 1];
 			const rectVar = divVar.getBoundingClientRect();
-			setRect(JSON.stringify(rectVar));
 			if ((myDivRef.current.offsetTop + myDivRef.current.offsetHeight
 				+ marginPixel ) >=  rectVar.bottom) {
 				isAdd = true;
@@ -39,19 +36,19 @@ function BoundingClientRectPage() {
 				dataRef.current.push(elem);
 			}
 		}
-		setData(dataRef.current);
+		setData(dataRef.current.slice());
 	}
 	
 	useEffect(() => {
-		scrollListener();
-		myDivRef.current.addEventListener('scroll',scrollListener)
+		addData();
+		myDivRef.current.addEventListener('scroll',addData);
 	},[]);
 	
 	return (
 		<>
 			<h3>GET BOUNDING CLIENT REACT</h3>
 			<h3>ÖRNEK DATA LİSTESİ</h3>
-			<div style={{height:'200px',width:'200px',overflowY:'scroll'}} ref={myDivRef}>
+			<div style={{height:'200px',width:'200px',overflowY:'scroll' , backgroundColor:'#c5fafc'}} ref={myDivRef}>
 				{data}
 			</div>
 		</>
